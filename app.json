@@ -4,12 +4,13 @@
     "slug": "igclone",
     "version": "1.0.0",
     "orientation": "portrait",
+    "scheme": "igclone-scheme",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "cover",
+      "backgroundColor": "#473198"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -20,11 +21,23 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "backgroundColor": "#473198"
+      },
+      "package": "com.solomonwole.igclone"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b9c2f32b-96e9-411a-b9fa-db54ab71d08b"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/b9c2f32b-96e9-411a-b9fa-db54ab71d08b"
     }
   }
 }
