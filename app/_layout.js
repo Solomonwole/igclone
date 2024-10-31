@@ -20,31 +20,15 @@ export default function Layout() {
 		AppState.addEventListener("change", handleAppStateChange);
 
 		return () => {
-			// Remove the event listener when the component unmounts.
 			AppState.removeEventListener("change", handleAppStateChange);
 		};
 	}, []);
 
-	// useEffect(() => {
-	// 	const checkTimeAndNavigate = () => {
-	// 		const now = new Date();
-	// 		if (now.getHours() === 1 && now.getMinutes() === 2) {
-	// 			// It's 1:00 AM, so navigate to the "/quiz" screen
-	// 			router.replace("/quiz");
-	// 		}
-	// 	};
-
-	// 	// Set up a timer to periodically check the time
-	// 	const timer = setInterval(checkTimeAndNavigate, 100); // Check every minute
-
-	// 	// Clear the timer when the component unmounts
-	// 	return () => clearInterval(timer);
-	// }, []);
-
+	// Check system time to navigate to countdown screen
 	useEffect(() => {
 		const checkTimeAndNavigate = () => {
 			const now = new Date();
-			if (now.getHours() === 1 && now.getMinutes() === 33) {
+			if (now.getHours() === 9 && now.getMinutes() === 54) {
 				// Check if the current route is not "/quiz"
 				if (router.current !== "/quiz") {
 					// Navigate to the "/quiz" screen

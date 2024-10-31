@@ -15,6 +15,7 @@ import QuizCard from "../components/quiz/card";
 import QuizOptions from "../components/quiz/options";
 import { Audio } from "expo-av";
 
+// Function to shuffle quiz options 
 function shuffleArray(array) {
 	for (let i = array.length - 1; i > 0; i--) {
 		const j = Math.floor(Math.random() * (i + 1));
@@ -66,17 +67,11 @@ const Quiz = () => {
 	}, [isRunning]);
 
 	// Music Playing
-
 	async function playSound() {
 		console.log("Loading Sound");
 		const { sound } = await Audio.Sound.createAsync(
 			require("../assets/audio/song.mp3")
 		);
-
-		// const { sound } = await Audio.Sound.createAsync({
-		// 	// uri: "https://assets.mixkit.co/music/preview/mixkit-feeling-happy-5.mp3",
-		// 	uri: "https://test.fortcoretech.com/api/files/FortCore/f6f317458816caf027aeb4d5359c0fdf_trap.mp3",
-		// });
 		setSound(sound);
 
 		console.log("Playing Sound");
@@ -86,14 +81,16 @@ const Quiz = () => {
 	}
 
 	useEffect(() => {
-		if (router.current !== "/quiz") {
+		if ("/quiz") {
 			playSound();
 		} else {
-			console.log("Unloading Sound");
+			console.log("End Sound");
 			sound.unloadAsync();
+			setSound(null);
 		}
 	}, [router]);
 
+	
 	const getQuiz = async () => {
 		const url =
 			"https://opentdb.com/api.php?amount=10&category=12&type=multiple&encode=url3986";
@@ -162,7 +159,6 @@ const Quiz = () => {
 			/>
 
 			<SafeAreaView>
-				{/* <Button title="Play Sound" onPress={playSound} /> */}
 				{isLoading ? (
 					<View style={styles.root}>
 						<View
